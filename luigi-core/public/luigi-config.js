@@ -34,7 +34,14 @@ Luigi.setConfig({
           }
         ]
       }
-    ]
+    ],
+    profile: {
+      logout: {
+        label: 'Sign Out',
+        icon: "sys-cancel",
+        customLogoutFn: myLogoutFn
+      }
+    },
   },
   routing: {
     /**
@@ -54,5 +61,32 @@ Luigi.setConfig({
     appLoadingIndicator: {
       hideAutomatically: true
     }
+  },
+  userSettings: {
+    userSettingGroups: {
+      theme: {
+        label: 'Theming',
+        title: 'Theming',
+        icon: 'lightbulb',
+        settings: {
+          theme: {
+            type: 'enum',
+            label: 'Theming',
+            options: [
+              { value: 'sap_fiori_3', label: 'Quartz light' },
+              { value: 'sap_fiori_3_dark', label: 'Quartz dark' },
+              { value: 'sap_fiori_3_hcw', label: 'High Contrast White' },
+              { value: 'sap_fiori_3_hcb', label: 'High Contrast Black' },
+              { value: 'sap_horizon', label: 'Morning Horizon' },
+              { value: 'sap_horizon_dark', label: 'Evening Horizon' }
+            ]
+          }
+        }
+      }
+    },
   }
 });
+
+function myLogoutFn() {
+  console.log('logout');
+}
